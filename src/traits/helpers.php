@@ -318,7 +318,7 @@
       // Add the system ID with the store data array.
       $storeData[ '_id' ] = $id;
       // Prepare storable data
-      $storableJSON = json_encode( $storeData );
+      $storableJSON = json_encode( $storeData, JSON_UNESCAPED_UNICODE );
       if ( $storableJSON === false ) throw new \Exception( 'Unable to encode the data array, 
         please provide a valid PHP associative array' );
       // Define the store path
