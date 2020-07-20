@@ -97,7 +97,7 @@
         $storePath = $this->storePath . 'data/' . $data[ '_id' ] . '.json';
         if ( file_exists( $storePath ) ) {
           // Wait until it's unlocked, then update data.
-          file_put_contents( $storePath, json_encode( $data ), LOCK_EX );
+          file_put_contents( $storePath, json_encode( $data, JSON_UNESCAPED_UNICODE ), LOCK_EX );
         }
       }
       // Check do we need to wipe the cache for this store.
