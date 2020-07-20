@@ -11,7 +11,7 @@
       $token  = $this->getCacheToken();
       $result = $this->findStoreDocuments();
       // Write the cache file.
-      file_put_contents( $this->getCachePath( $token ), json_encode( $result ) );
+      file_put_contents( $this->getCachePath( $token ), json_encode( $result, JSON_UNESCAPED_UNICODE ) );
       // Reset cache flags to avoid future queries on the same object of the store.
       $this->resetCacheFlags();
       // Return the data.
@@ -47,7 +47,7 @@
         'notIn' => $this->notIn,
         'order' => $this->orderBy,
         'search' => $this->searchKeyword
-      ] );
+      ], JSON_UNESCAPED_UNICODE );
       return md5( $query );
     }
 
